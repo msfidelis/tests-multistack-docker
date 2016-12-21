@@ -3,8 +3,12 @@ services:
   api:
     build: Docker/PHP7
     restart: never
+    command: bash -c "chmod +x /home/run.sh; /home/run.sh"
     volumes:
+      - ./Docker/PHP7/run.sh:/home/run.sh
       - ./web:/var/www/html
+      - ./Logs/PHP7:/tmp/logs
+
     ports:
       - "80:80"
     links:

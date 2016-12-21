@@ -1,4 +1,3 @@
 #!/bin/bash
-
-docker-compose -f docker-compose-php5.yml ;
-docker-compose -f docker-compose-php7.yml ;
+sudo docker-compose -f docker-compose-php5.yml up --abort-on-container-exit;
+sudo docker-compose -f docker-compose-php7.yml up --abort-on-container-exit

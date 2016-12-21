@@ -6,6 +6,7 @@ services:
     volumes:
       - ./web:/var/www/html
       - ./Docker/PHP5/run.sh:/home/run.sh
+      - ./Logs/PHP5:/tmp/logs
 
     command: bash -c "chmod +x /home/run.sh; /home/run.sh"
     ports:

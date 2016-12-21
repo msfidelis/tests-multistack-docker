@@ -1,5 +1,9 @@
 Docker/MySQL/data
 Docker/MySQL/data/*
+Logs/PHP5
+Logs/PHP5/*
+Logs/PHP7
+Logs/PHP7/*
 web/vendor
 web/vendor/*
 web/composer.lock
