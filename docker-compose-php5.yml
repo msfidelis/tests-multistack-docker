@@ -5,6 +5,9 @@ services:
     restart: never
     volumes:
       - ./web:/var/www/html
+      - ./Docker/PHP5/run.sh:/home/run.sh
+
+    command: bash -c "chmod +x /home/run.sh; /home/run.sh"
     ports:
       - "80:80"
     links:

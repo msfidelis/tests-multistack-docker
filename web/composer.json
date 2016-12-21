@@ -2,7 +2,8 @@
     "require": {
         "silex/silex": "~2.0",
         "twig/twig": "1.17.*@dev",
-        "doctrine/dbal": "~2.5"
+        "doctrine/dbal": "~2.5",
+        "symfony/browser-kit": "dev-master"
     },
     "require-dev": {
         "symfony/var-dumper": "dev-master"
