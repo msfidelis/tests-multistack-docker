@@ -1,0 +1,5 @@
+Docker/MySQL/data
+Docker/MySQL/data/*
+web/vendor
+web/vendor/*
+web/composer.lock
