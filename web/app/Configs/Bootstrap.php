@@ -18,7 +18,7 @@ $jsonContent = file_get_contents($jsonFile);
 Config::$config = (object) json_decode($jsonContent);
 
 $app = new Application();
-$app['debug'] = True;
+$app['debug'] = Config::$config->env->debugmode;
 
 
 //Configura o Twig. Mover isso para o config.json

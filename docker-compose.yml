@@ -9,6 +9,7 @@ services:
       - "80:80"
     links:
       - mysql
+      - memcache
 
   mysql:
     image: mysql:5.7
@@ -20,3 +21,8 @@ services:
       - MYSQL_DATABASE=example
     volumes:
       - ./Docker/Mysql/data:/var/lib/mysql
+
+  memcache:
+    build: Docker/Memcache
+    ports:
+      - "11211:11211"

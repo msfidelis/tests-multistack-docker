@@ -8,6 +8,6 @@
     "password" : "hostapi"
   },
   "env" : {
-    "debug-mode" : "true"
+    "debugmode" : "true"
   }
 }
