@@ -1,0 +1,28 @@
+version: '2'
+services:
+  composer:
+    build: ./Docker/Composer
+    restart: never
+    volumes:
+      - ./web/:/home/web
+
+  dumper:
+    build: ./Docker/Dump
+    restart: never
+    command: sh -c "sleep 10 && /usr/bin/mysql -h mysql -uroot -phostapi cursos < /tmp/seed.sql"
+    volumes:
+      - ./Docker/Dump/seed.sql:/tmp/seed.sql
+
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:5.7
+    restart: never
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=hostapi
+      - MYSQL_DATABASE=cursos
+    volumes:
+      - ./Docker/Mysql/data:/var/lib/mysql

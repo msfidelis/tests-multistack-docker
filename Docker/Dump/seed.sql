@@ -11,9 +11,9 @@
 -- ---------------------------------------------------------
 
 
--- CREATE DATABASE "querosertech" --------------------------
-CREATE DATABASE IF NOT EXISTS `querosertech` CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `querosertech`;
+-- CREATE DATABASE "cursos" --------------------------
+CREATE DATABASE IF NOT EXISTS `cursos` CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `cursos`;
 -- ---------------------------------------------------------
 
 
@@ -159,7 +159,7 @@ AUTO_INCREMENT = 3;
 
 
 -- Dump data of "categorias" -------------------------------
-DELETE FROM  ` categorias`;
+DELETE FROM  `categorias`;
 INSERT INTO `categorias`(`id_categoria`,`descricao`,`url_img`,`url_header`,`slug`,`cor_hex`,`id_usuario`,`created`,`modified`) VALUES ( '1', 'NodeJS', 'https://www.echosteg.com/images/blog/standard/nodejs_logo.png', 'http://softwareengineeringdaily.com/wp-content/uploads/2015/08/nodejs_logo_green.jpg', 'nodejs', '#92c431', '1', '2016-09-03 03:39:45', '2016-12-18 21:07:55' );
 INSERT INTO `categorias`(`id_categoria`,`descricao`,`url_img`,`url_header`,`slug`,`cor_hex`,`id_usuario`,`created`,`modified`) VALUES ( '2', 'AngularJS', 'https://www.mxcursos.com/blog/wp-content/uploads/2016/06/AngularJS.png', NULL, 'angularjs', '#8c2e27', '1', '2016-09-04 23:18:31', '2016-09-04 23:18:57' );
 INSERT INTO `categorias`(`id_categoria`,`descricao`,`url_img`,`url_header`,`slug`,`cor_hex`,`id_usuario`,`created`,`modified`) VALUES ( '3', 'Python', 'http://orig12.deviantart.net/6902/f/2015/044/2/5/numa_flat_python_wallpaper_by_charlie_henson-d8htz7i.png', NULL, 'python', '#c0411b', '1', '2016-11-06 02:14:26', '2016-11-06 02:15:17' );
@@ -195,7 +195,7 @@ INSERT INTO `cursos`(`id_curso`,`nome_curso`,`descricao`,`url_curso`,`url_img`,`
 -- ---------------------------------------------------------
 
 -- Dump data of "modos" ------------------------------------
-DELETE ROM `modos`;
+DELETE FROM `modos`;
 INSERT INTO `modos`(`id_modo_aprendizado`,`descricao`,`slug`,`created`,`modified`) VALUES ( '1', 'Video', 'video', '2016-11-06 01:57:58', '2016-11-06 01:57:58' );
 
 -- Dump data of "users" ------------------------------------
