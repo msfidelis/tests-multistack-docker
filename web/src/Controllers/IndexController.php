@@ -16,6 +16,10 @@ class IndexController implements ControllerProviderInterface {
 			'funcionando']);
 		});
 
+		$index->get('/server', function() use ($app) {
+			return $app->json(['version' => phpversion()]);
+		});
+
 		return $index;
 	}
 }

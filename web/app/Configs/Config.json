@@ -3,8 +3,8 @@
   "db" : {
     "driver":"pdo_mysql",
     "host":"mysql",
-    "schema": "example",
-    "user": "hostapi",
+    "schema": "cursos",
+    "user": "root",
     "password" : "hostapi"
   },
   "env" : {

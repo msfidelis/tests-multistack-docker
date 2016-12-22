@@ -37,4 +37,15 @@ class IndexApiTest extends WebTestCase {
         $this->assertEquals('funcionando', $response->status);
     }
 
+    /**
+     * Testa a Versão do PHP
+     * @return [type] [description]
+     */
+    public function PHPVersion() {
+      $client = $this->createClient();
+      $client->request('GET', '/server');
+      $response = json_decode($client->getResponse()->getContent());
+      var_dump($response); die();
+    }
+
 }

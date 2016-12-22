@@ -22,7 +22,7 @@ services:
       - "3306:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=hostapi
-      - MYSQL_DATABASE=example
+      - MYSQL_DATABASE=cursos
     volumes:
       - ./Docker/Mysql/data:/var/lib/mysql
 
