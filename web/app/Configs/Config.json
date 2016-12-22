@@ -5,7 +5,8 @@
     "host":"mysql",
     "schema": "cursos",
     "user": "root",
-    "password" : "hostapi"
+    "password" : "hostapi",
+    "charset" : "utf8"
   },
   "env" : {
     "debugmode" : "true"

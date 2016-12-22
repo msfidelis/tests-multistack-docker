@@ -18,6 +18,14 @@ Config::$config = (object) json_decode($jsonContent);
 $app = new Application();
 $app['debug'] = Config::$config->env->debugmode;
 
+/**
+ * [$error Vai customizar a devolução de erros das Exceptions em formato JSON]
+ */
+$app->error(function (\Exception $e, Request $request, $code) use ($app) {
+    $error = array("msg" => $e->getMessage(), 'status' => $code);
+    return $app->json($error, $code);
+});
+
 
 //Configura o Twig. Mover isso para o config.json
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
@@ -27,7 +35,9 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
   )
 );
 
-//Configura o Banco de Dados.
+/**
+ * Configurações do Banco de Dados
+ */
 $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
     'db.options' => array(
       'driver'    => Config::$config->db->driver,
@@ -35,6 +45,7 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
       'dbname'    => Config::$config->db->schema,
       'user'      => Config::$config->db->user,
       'password'  => Config::$config->db->password,
+      'charset'  => Config::$config->db->charset
     ),
 ));
 
