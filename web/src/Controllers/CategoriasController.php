@@ -12,8 +12,8 @@ class CategoriasController implements ControllerProviderInterface {
 		$index = $app['controllers_factory'];
 
 		$index->get('/', function() use ($app) {
-			return $app->json(['Testando com Docker' =>
-			'Testes são legais']);
+			return $app->json(['status' =>
+			'funcionando']);
 		});
 
 		return $index;
