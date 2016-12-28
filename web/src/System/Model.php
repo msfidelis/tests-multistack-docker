@@ -5,8 +5,8 @@ use Doctrine\DBAL\Query\QueryBuilder;
 
 /**
  * Classe abstrata do Model
- * Prove recursos de conexão compartilhados 
- * para todas as classes que precisam de conexão 
+ * Prove recursos de conexão compartilhados
+ * para todas as classes que precisam de conexão
  * @documentacao "http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/query-builder.html"
  * @documentacao "https://media.readthedocs.org/pdf/doctrine-dbal/latest/doctrine-dbal.pdf"
  * @email msfidelis01@gmail.com
@@ -18,18 +18,18 @@ abstract class Model {
    * @var type object Query Builder
    */
 	public static $query;
-  
+
   /**
    * Uma instância das configurações de conexão do ORM
-   * @var type 
+   * @var type
    */
 	public static $db;
 
   /**
    * Executa a query constrída pelo Query Builder do Doctrine
-   * @param type $query string 
+   * @param type $query string
    * @param type $toArray define se o retorno será um Array ou um Objeto
-   * @return type 
+   * @return type
    */
 	protected function execute($query, $toArray = True) {
 		$return = self::$db->executeQuery($query)->fetchAll();
@@ -49,7 +49,7 @@ abstract class Model {
 	}
 
   /**
-   * Método de delete nativo do Doctrine 
+   * Método de delete nativo do Doctrine
    * @param type $table tabela a ser trabalhada
    * @param array $where contêm os parâmetros do where
    * @return type boolean
@@ -76,7 +76,7 @@ abstract class Model {
    * @return type boolean
    */
 	protected function DBUpdate ($table, Array $values, Array $where ) {
-		return self::$db->update($table, $values, $where); 
+		return self::$db->update($table, $values, $where);
 	}
 
 }

@@ -39,6 +39,7 @@ class CursosController implements ControllerProviderInterface {
 		$index->get("/getcursobyid/{id}", function ($id) use ($app) {
 			if ($id) {
 				$curso = (new CursosModel())->getCursoByID($id);
+				//var_dump($curso); die();
 				return $app->json($curso);
 			} else {
 				throw new \Exception("ID do curso não informada", 1);
