@@ -29,3 +29,14 @@ services:
     build: Docker/Memcache
     ports:
       - "11211:11211"
+
+  blackfire:
+    image: blackfire/blackfire
+    environment:
+      - BLACKFIRE_CLIENT_ID=b00d47eb-0160-455c-baf3-6b21a3df
+      - BLACKFIRE_CLIENT_TOKEN=a62fbccb47476f5ef8f288f14aa212e655b618c69ebde8ff55b618c69ebde8ff
+      - BLACKFIRE_SERVER_ID=6b21a3df455c-435b-93cb-b00d47eb
+      - BLACKFIRE_SERVER_TOKEN=a55b618c69ebde8ffdc2a95daf493d1f66a63577196c9f152fc36b7baed7cfc1
+
+    links:
+      - api
