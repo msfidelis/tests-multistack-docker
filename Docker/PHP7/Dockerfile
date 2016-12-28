@@ -7,7 +7,11 @@ RUN apt-get update ; \
   php7.0-common php7.0-dba php7.0-gd php7.0-odbc php7.0-xml php-xdebug \
   build-essential libmemcached-dev php-memcache phpunit -y;
 
+#DEV - Desabilita o XDebug
+RUN echo "" > /etc/php/7.0/cli/conf.d/20-xdebug.ini
+
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN mkdir /tmp/opcache/ && chmod 777 /tmp/opcache
 
 VOLUME /var/www/html/
 

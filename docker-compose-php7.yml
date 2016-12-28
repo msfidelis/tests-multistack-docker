@@ -8,6 +8,7 @@ services:
       - ./Docker/PHP7/run.sh:/home/run.sh
       - ./web:/var/www/html
       - ./Logs/PHP7:/tmp/logs
+      - ./Docker/PHP7/php-cli.ini:/etc/php/7.0/cli/php.ini
 
     ports:
       - "80:80"

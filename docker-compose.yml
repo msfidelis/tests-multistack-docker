@@ -5,6 +5,9 @@ services:
     restart: never
     volumes:
       - ./web:/var/www/html
+      - ./Docker/PHP7/opcache.ini:/etc/php/7.0/etc/conf.d/opcache.ini
+      #- ./Docker/PHP7/php.ini:/etc/php/7.0/apache2/php.ini
+      - ./Docker/PHP7/php-cli.ini:/etc/php/7.0/cli/php.ini
     ports:
       - "80:80"
     links:

@@ -20,6 +20,10 @@ class IndexController implements ControllerProviderInterface {
 			return $app->json(['version' => phpversion()]);
 		});
 
+		$index->get('/version', function() use ($app) {
+			return phpinfo();
+		});
+
 		return $index;
 	}
 }
