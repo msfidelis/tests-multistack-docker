@@ -1,0 +1,44 @@
+version: '2'
+services:
+  api:
+    build: Docker/PHP7
+    restart: never
+    volumes:
+      - ./web:/var/www/html
+      - ./Logs/PHP7:/tmp/logs
+      - ./Docker/PHP7/php-cli.ini:/etc/php/7.0/cli/php.ini
+
+    ports:
+      - "80:80"
+    links:
+      - mysql
+      - memcache
+
+  mysql:
+    image: mysql:5.7
+    restart: never
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=hostapi
+      - MYSQL_DATABASE=cursos
+    volumes:
+      - ./Docker/Mysql/data:/var/lib/mysql
+
+  memcache:
+    build: Docker/Memcache
+    ports:
+      - "11211:11211"
+
+  blackfire:
+    image: blackfire/blackfire
+    command: sh /tmp/blackfire-test.sh
+    volumes:
+      - "./Docker/PHP7/blackfire-test.sh:/tmp/blackfire-test.sh"
+    environment:
+      - BLACKFIRE_CLIENT_ID=b00d47eb-0160-455c-baf3-5746f7697f76
+      - BLACKFIRE_CLIENT_TOKEN=a62fbccb47476f5ef8f288f14aa212e666a63577196c9f152fc36b7baed7cfc1
+      - BLACKFIRE_SERVER_ID=6b21a3df-55c0-435b-93cb-8795d1033c85
+      - BLACKFIRE_SERVER_TOKEN=a55b618c69ebde8ffdc2a95daf493d1f44948e5ea6b095b5f58a69fbd0e1b0eb
+    links:
+      - api
