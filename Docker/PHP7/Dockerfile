@@ -19,7 +19,6 @@ RUN mv /tmp/blackfire.so $(php -r "echo ini_get('extension_dir');")/blackfire.so
 
 #DEV - Desabilita o XDebug
 #RUN echo "" > /etc/php/7.0/cli/conf.d/20-xdebug.ini
-
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN mkdir /tmp/opcache/ && chmod 777 /tmp/opcache
 
